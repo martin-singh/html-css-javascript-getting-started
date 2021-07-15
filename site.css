@@ -107,8 +107,6 @@ article {
     color: #fff;
 }
 
-
-
 /* FOOTER SECTION */
 footer {
     padding: 15px;
@@ -122,7 +120,7 @@ footer {
     aside {
         margin-left: 2%;
     }
-    .columns-desktop {
+    .columns-desktop { /* from the pies page */
         display: flex;
     }
 }
