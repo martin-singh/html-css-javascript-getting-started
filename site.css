@@ -1,0 +1,128 @@
+/* Reset all the elements on the page */
+* {
+    margin: 0;
+}
+
+/* Rule to calc the dimension of the entire page within the browser */
+html, 
+body {
+    height: 100%;
+}
+
+/* GENERAL STYLES */ 
+body {
+    background-color: #999;
+    font-family: Arial, Helvetica, sans-serif;
+}
+p {
+    margin: 0.5em 0 0.5em 0; /* top right bottom left */
+}
+#index h1 { /* will only affect the h1 in index.html */
+    margin-top: 0.5em;
+    font-size: 3em;
+}
+
+/* HEADER SECTION */ 
+header {
+    padding: 10px;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #a493c0;
+}
+nav > ul { /* will also affect the footer since nav is used there */
+    padding: 0;
+    display: inline;
+}
+nav > ul > li {
+    margin: 0 5px 0 5px;
+    display: inline-block;
+    list-style: none;
+}
+nav a:visited, 
+nav a:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* MAIN SECTION */
+main {
+    padding: 3em 0; /* top/bottom right/left */
+    display: block;
+    min-height: 85%;
+    background-image: url("images/background.png");
+}
+aside, 
+article {
+    padding: 2em;
+}
+aside {
+    text-align: center; /* is used to align both text and images within a container */
+}
+article {
+    width: 75%;
+}
+.columns {
+    display: flex;
+}
+/* from the index page */
+.banner {
+    max-width: 100%;
+}
+.sub-title {
+    padding: 10px;
+    background-color: #fff;
+    font-size: 1.5em;
+}
+/* from the pies page */
+.pie {
+    margin: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    background-color: #fff;
+}
+.pie img {
+    width: 100%;
+}
+.pie .columns {
+    width: 100%;
+}
+.pie .columns div {
+    width: 50%;
+}
+.pie .title {
+    font-weight: bold;
+}
+.pie .price {
+    text-align: right;
+}
+.pie button {
+    padding: 10px;
+    border: 1px solid #f6aeae;
+    border-radius: 3px;
+    background-color: #f6aeae;
+    color: #fff;
+}
+
+
+
+/* FOOTER SECTION */
+footer {
+    padding: 15px;
+}
+
+/* RESPONSIVE DESIGN */
+@media only screen and (min-width: 768px) {
+    main { /* 2 col layout on desktop */
+        display: flex;
+    }
+    aside {
+        margin-left: 2%;
+    }
+    .columns-desktop {
+        display: flex;
+    }
+}
