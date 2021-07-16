@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pies | Bethany's Pie Shop</title>
-    <link rel="stylesheet" type="text/css" href="site.css">
+    <link rel="stylesheet" type="text/css" href="css/site.css">
 </head>
 <body id="index">
     <!-- NAVIGATION -->
@@ -34,7 +34,7 @@
                     </div>
                     <p class="desc">Our famous Apple Pie</p>
                     <button data-order="apple-pie">Order</button> <!-- data-order holds the value of a specific product, prob useful for JS -->
-                </div> <!-- end to a product -->
+                </div> <!-- end of a product -->
                 <div class="pie">
                     <img src="images/cherry-pie.png" alt="Cherry Pie">
                     <div class="columns">
@@ -58,5 +58,37 @@
             </ul>
         </nav>
     </footer>
+
+    <!-- JS (should be at the end of the body) -->
+    <script type="text/javascript">
+        /* waits for the page to get loaded */
+        window.addEventListener("DOMContentLoaded", function(e) { 
+            /* get access to the buttons on the pies page based on attribute*/
+            const orderButtons = document.querySelectorAll("button[data-order]"); 
+            
+            orderButtons.forEach(function(button) {
+                button.addEventListener("click", function(e) {
+                    const button = e.currentTarget;
+                    const container = button.parentNode;
+
+                    /* get info about a certain product and store in a object */
+                    const order = {
+                        id: button.getAttribute("data-order"),
+                        title: container.querySelector(".title").innerText,
+                        price: container.querySelector(".price").innerText,
+                        desc: container.querySelector(".desc").innerText
+                    };
+                    
+                    /* stores that object as a string (localStorage can't handle objects) into the browser memory */
+                    localStorage.setItem("order", JSON.stringify(order));
+
+                    /* go to the order page */
+                    const url = window.location.href.replace("pies.html", "order.html");
+                    window.location.href = url;
+                });
+            });
+
+        });
+    </script>
 </body>
 </html>
